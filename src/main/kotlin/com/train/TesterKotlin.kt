@@ -4,13 +4,20 @@ import java.util.*
 import kotlin.math.roundToInt
 
 fun main() {
-    val scanner = Scanner(System.`in`)
-    print("Kotlin => Please enter number of tickets: ")
-    val total = scanner.nextInt()
-    print("Kotlin => How many round-trip tickets:  ")
-    val roundTrip = scanner.nextInt()
-    val ticket = Ticket(total, roundTrip)
-    ticket.printResult()
+
+    var total : Int
+    do {
+        val scanner = Scanner(System.`in`)
+        print("Kotlin => Please enter number of tickets: ")
+        total = scanner.nextInt()
+        if (total == -1) {
+            break
+        }
+        print("Kotlin => How many round-trip tickets:  ")
+        val roundTrip = scanner.nextInt()
+        val ticket = Ticket(total, roundTrip)
+        ticket.printResult()
+    } while (total != -1)
 }
 
 class Ticket(private var total: Int,
